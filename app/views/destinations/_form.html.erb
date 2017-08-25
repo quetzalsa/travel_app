@@ -1,4 +1,4 @@
-<%= form_for(@destination) do |f| %>
+<%= form_for @destination, html: { multipart: true } do |f| %>
   <% if @destination.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@destination.errors.count, "error") %> prohibited this destination from being saved:</h2>
@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div class="field form-group">
+    <%= f.label :image %><br>
+    <%= f.file_field :image, class: 'form-group' %>
+  </div>
+  
   <div class="field form-group">
     <%= f.label :city %><br>
     <%= f.text_field :city, class: 'form-group' %>
