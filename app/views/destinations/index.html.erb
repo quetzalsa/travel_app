@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+  <div class="col-sm-offset-1 col-md-offset-1">
+    <h1>My Destinations Wish List</h1>
+  </div>
+
+  
+  <div class="row">
+    <% @destinations.each do |destination| %>
+      <div class="col-sm-12 col-xs-offset-1 col-md-4 col-md-offset-1">
+        <div class="panel panel-default">
+        <div class="panel body">
+        <h2><%= destination.city %></h2>
+        <h3><%= destination.country %></h3>
+        <p><%= destination.description %></p>
+        
+        <div class="btn-group">
+        <%= link_to 'Show', destination, class: 'btn btn-default' %>
+        <%= link_to 'Edit', edit_destination_path(destination), class: 'btn btn-default' %>
+        <%= link_to 'Destroy', destination, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+        </div>
+        </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+  <br>
+  <div class="form-group col-sm-offset-1 col-md-offset-1">
+  <%= link_to 'New Destination', new_destination_path, class: 'btn btn-primary' %>
+  </div>
